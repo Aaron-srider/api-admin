@@ -1,0 +1,43 @@
+{
+    "test_embedded_list": {
+        "tests": [
+            {
+                "name": "ty06pk",
+                "test_test_vo": {
+                    "address": "og2dq2",
+                    "id": 105
+                },
+                "age": 32
+            },
+            {
+                "name": "qu49y2",
+                "test_test_vo": {
+                    "address": "rhwb1d",
+                    "id": 100
+                },
+                "age": 5
+            },
+            {
+                "name": "rpnvmo",
+                "test_test_vo": {
+                    "address": "osogep",
+                    "id": 82
+                },
+                "age": 26
+            }
+        ]
+    }
+}
+
+NO_DEVICE_TEMPLATE 模板id对应的模板不存在
+
+TEMPLATE_ENTRY_NAME_DUPLICATE 模板字段重名
+
+CAN_NOT_MODIFY_TEMPLATE_REQUIRED_ENTRY 不能修改所有模板必须有的字段
+
+
+
+
+全局返回码:
+
+
