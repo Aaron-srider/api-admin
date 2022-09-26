@@ -98,6 +98,36 @@ export function formatTime(time, option) {
     }
 }
 
+export function format_during(millisecond) {
+    var days = parseInt(millisecond / (1000 * 60 * 60 * 24));
+    var hours = parseInt(
+        (millisecond % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
+    var minutes = parseInt((millisecond % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = parseInt((millisecond % (1000 * 60)) / 1000);
+    if (millisecond === 0) {
+        return 0;
+    }
+
+    if (seconds === 0) {
+        return millisecond + 'ms';
+    }
+
+    if (minutes === 0) {
+        return seconds + 's';
+    }
+
+    if (hours === 0) {
+        return minutes + 'm';
+    }
+
+    if (days === 0) {
+        return hours + 'h';
+    }
+
+    return days + 'd';
+}
+
 /**
  * @param {string} url
  * @returns {Object}
@@ -173,4 +203,64 @@ function process_case(value, ...args) {
 
     // 提供了默认函数，执行
     last(value);
+}
+
+export class ArrayUtils {
+    static remove(array, predicate) {
+        let idx = 0;
+        for (let i = 0; i < array.length; i++) {
+            const item = array[i];
+            if (predicate(item) === true) {
+                idx = i;
+            }
+        }
+
+        array.splice(idx, 1);
+    }
+
+    static getFirst(array, predicate) {
+        for (let i = 0; i < array.length; i++) {
+            const item = array[i];
+            if (predicate(item) === true) {
+                return item;
+            }
+        }
+
+        return null;
+    }
+}
+
+export class StringUtils {
+    static empty(str) {
+        if (str == undefined || str === '') {
+            return true;
+        }
+        return false;
+    }
+
+    static isInt(str) {
+        let pattern = /^\d*$/;
+        return pattern.test(str);
+    }
+}
+
+// ====================== 关于页面之间query传参 ======================
+import { encode_obj, decode_obj } from './base64';
+
+function encode_query(query) {
+    return encode_obj(query);
+}
+
+export function parse_query(query) {
+    return decode_obj(query);
+}
+
+export function to_page(router, path, query) {
+    if (query != undefined) {
+        query = encode_query(query);
+    }
+    router.push({
+        path,
+        query,
+    });
 }

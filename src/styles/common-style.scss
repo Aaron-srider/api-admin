@@ -28,6 +28,10 @@ $google-gray-400: #bdbdbd;
     flex-direction: column;
 }
 
+.row {
+    flex-direction: row;
+}
+
 .justify-center {
     justify-content: center;
 }
@@ -298,7 +302,6 @@ $google-gray-400: #bdbdbd;
     padding-right: 20px;
 }
 
-
 .pd15 {
     padding: 15px;
 }
@@ -472,7 +475,6 @@ $google-gray-400: #bdbdbd;
 }
 
 .ellipsis_text {
-
     overflow: hidden; //超出的文本隐藏
     text-overflow: ellipsis; //溢出用省略号显示
     white-space: nowrap; //溢出不换行

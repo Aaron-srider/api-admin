@@ -3,8 +3,8 @@
         <template
             v-if="
                 hasOneShowingChild(item.children, item) &&
-                    (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
-                    !item.alwaysShow
+                (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
+                !item.alwaysShow
             "
         >
             <app-link
@@ -18,7 +18,7 @@
                     <item
                         :icon="
                             onlyOneChild.meta.icon ||
-                                (item.meta && item.meta.icon)
+                            (item.meta && item.meta.icon)
                         "
                         :title="onlyOneChild.meta.title"
                     ></item>

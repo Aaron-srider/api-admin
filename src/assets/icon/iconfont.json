@@ -6,11 +6,102 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "13553420",
-      "name": "mini-program-line",
+      "icon_id": "18517134",
+      "name": "备份",
+      "font_class": "file-backup",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "19274264",
+      "name": "扫描备份",
+      "font_class": "qr-code-scanning",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "10593790",
+      "name": "日志_jurassic",
+      "font_class": "jurassic_log",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "3552293",
+      "name": "小程序",
       "font_class": "mini-program-line",
-      "unicode": "eea8",
-      "unicode_decimal": 61096
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "1304947",
+      "name": "菜单",
+      "font_class": "menu",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "3538379",
+      "name": "删除",
+      "font_class": "delete",
+      "unicode": "e719",
+      "unicode_decimal": 59161
+    },
+    {
+      "icon_id": "4651935",
+      "name": "修改",
+      "font_class": "edit",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "19397072",
+      "name": "gis_解绑",
+      "font_class": "gis_jiebang",
+      "unicode": "e706",
+      "unicode_decimal": 59142
+    },
+    {
+      "icon_id": "15214511",
+      "name": "代码",
+      "font_class": "daima",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "20104545",
+      "name": "主机管理",
+      "font_class": "zhujiguanli",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "9809611",
+      "name": "模板设置",
+      "font_class": "mobanshezhi",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "16562598",
+      "name": "主机",
+      "font_class": "zhuji",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "109739",
+      "name": "file",
+      "font_class": "file",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "12579283",
+      "name": "folder-open",
+      "font_class": "folder-open",
+      "unicode": "e727",
+      "unicode_decimal": 59175
     },
     {
       "icon_id": "11488094",
@@ -1509,13 +1600,6 @@
       "font_class": "email-fill",
       "unicode": "e82a",
       "unicode_decimal": 59434
-    },
-    {
-      "icon_id": "11474272",
-      "name": "editor",
-      "font_class": "editor",
-      "unicode": "e6f6",
-      "unicode_decimal": 59126
     },
     {
       "icon_id": "11488254",
