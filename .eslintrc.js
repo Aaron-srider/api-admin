@@ -14,6 +14,66 @@ module.exports = {
     // add your custom rules here
     //it is base on https://github.com/vuejs/eslint-config-vue
     rules: {
+        'vue/prop-name-casing': [0, 'camelCase' | 'snake_case'],
+        'vue/order-in-components': [
+            1,
+            {
+                order: [
+                    'el',
+                    'name',
+                    'key',
+                    'parent',
+                    'functional',
+                    ['delimiters', 'comments'],
+                    ['components', 'directives', 'filters'],
+                    'extends',
+                    'mixins',
+                    ['provide', 'inject'],
+                    'ROUTER_GUARDS',
+                    'layout',
+                    'middleware',
+                    'validate',
+                    'scrollToTop',
+                    'transition',
+                    'loading',
+                    'inheritAttrs',
+                    'model',
+                    ['props', 'propsData'],
+                    'emits',
+                    'setup',
+                    'asyncData',
+                    'data',
+                    'fetch',
+                    'head',
+                    'computed',
+                    'watch',
+                    'watchQuery',
+                    'LIFECYCLE_HOOKS',
+                    'methods',
+                    ['template', 'render'],
+                    'renderError',
+                ],
+            },
+        ],
+        'vue/attributes-order': [
+            0,
+            {
+                order: [
+                    'DEFINITION',
+                    'LIST_RENDERING',
+                    'CONDITIONALS',
+                    'RENDER_MODIFIERS',
+                    'GLOBAL',
+                    ['UNIQUE', 'SLOT'],
+                    'TWO_WAY_BINDING',
+                    'OTHER_DIRECTIVES',
+                    'OTHER_ATTR',
+                    'EVENTS',
+                    'CONTENT',
+                ],
+                alphabetical: false,
+            },
+        ],
         'vue/no-parsing-error': [
             1,
             {
@@ -79,7 +139,7 @@ module.exports = {
         ],
         'vue/singleline-html-element-content-newline': 'off',
         'vue/html-indent': [
-            2,
+            'error',
             4,
             {
                 attribute: 1,
@@ -126,7 +186,7 @@ module.exports = {
         curly: [2, 'multi-line'],
         'dot-location': [2, 'property'],
         'eol-last': 2,
-        eqeqeq: ['error', 'always', { null: 'ignore' }],
+        eqeqeq: [1, 'always', { null: 'ignore' }],
         'generator-star-spacing': [
             2,
             {
@@ -247,7 +307,7 @@ module.exports = {
         'no-unreachable': 2,
         'no-unsafe-finally': 2,
         'no-unused-vars': [
-            1,
+            2,
             {
                 vars: 'all',
                 args: 'none',
@@ -293,7 +353,7 @@ module.exports = {
             },
         ],
         'space-before-blocks': [2, 'always'],
-        'space-before-function-paren': [2, 'never'],
+        'space-before-function-paren': [0, 'never'],
         'space-in-parens': [2, 'never'],
         'space-infix-ops': 2,
         'space-unary-ops': [

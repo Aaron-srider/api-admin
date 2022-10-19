@@ -174,3 +174,42 @@ function process_case(value, ...args) {
     // 提供了默认函数，执行
     last(value);
 }
+
+export class ArrayUtils {
+    static remove(array, predicate) {
+        let idx = 0;
+        for (let i = 0; i < array.length; i++) {
+            const item = array[i];
+            if (predicate(item) === true) {
+                idx = i;
+            }
+        }
+
+        array.splice(idx, 1);
+    }
+
+    static getFirst(array, predicate) {
+        for (let i = 0; i < array.length; i++) {
+            const item = array[i];
+            if (predicate(item) === true) {
+                return item;
+            }
+        }
+
+        return null;
+    }
+}
+
+export class StringUtils {
+    static empty(str) {
+        if (str == undefined || str === '') {
+            return true;
+        }
+        return false;
+    }
+
+    static isInt(str) {
+        let pattern = /^\d*$/;
+        return pattern.test(str);
+    }
+}

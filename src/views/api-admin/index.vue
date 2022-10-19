@@ -70,69 +70,61 @@
 
                             <!-- 请求参数 -->
                             <div class="mgt10">
-                                <div class="section-title">请求参数</div>
-                                <div class="flex table-header">
-                                    <div class="flexg2 table-header-cell">
-                                        字段名
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        参数类型
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        字段类型
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        是否必填
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        默认值
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        说明
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        Example
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex table"
-                                    v-for="param in api.params"
-                                    :key="param.id"
+                                <el-table
+                                    :data="api.params"
+                                    border
+                                    style="width: 100%"
                                 >
-                                    <div class="flexg2 table-cell">
-                                        {{ param.name }}
-                                    </div>
-                                    <div class="flexg2 table-cell">
-                                        {{ param.param_type }}
-                                    </div>
-                                    <div class="flexg2 table-cell">
-                                        {{ param.data_type }}
-                                    </div>
-                                    <div class="flexg2 table-cell">
-                                        {{ param.required }}
-                                    </div>
-                                    <div class="flexg2 table-cell">
-                                        {{ param.default }}
-                                    </div>
-                                    <div class="flexg2 table-cell">
-                                        {{ param.detail }}
-                                    </div>
-                                    <!-- TODO -->
-                                    <div
-                                        @click="if_show_example(param)"
-                                        class="flexg2 table-cell"
+                                    <el-table-column
+                                        prop="name"
+                                        label="字段名"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="param_type"
+                                        label="参数类型"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="data_type"
+                                        label="字段类型"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="required"
+                                        label="是否必填"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="default"
+                                        label="默认值"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="detail"
+                                        label="说明"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="example"
+                                        label="Example"
+                                        width="400"
                                     >
-                                        <v-md-preview
-                                            :id="`param-example-${param.id}`"
-                                            :text="`\`\`\` json\n ${
-                                                param.show_example === true
-                                                    ? param.example
-                                                    : 'expand'
-                                            } \n \`\`\``"
-                                            style="cursor: pointer"
-                                        ></v-md-preview>
-                                    </div>
-                                </div>
+                                        <template slot-scope="scope">
+                                            <div
+                                                @click="
+                                                    if_show_example(scope.row)
+                                                "
+                                            >
+                                                <v-md-preview
+                                                    :id="`param-example-${scope.row.id}`"
+                                                    :text="`\`\`\` json\n ${
+                                                        scope.row
+                                                            .show_example ===
+                                                        true
+                                                            ? scope.row.example
+                                                            : 'expand'
+                                                    } \n \`\`\``"
+                                                    style="cursor: pointer"
+                                                ></v-md-preview>
+                                            </div>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
                             </div>
 
                             <!-- 请求参数额外说明 -->
@@ -153,27 +145,20 @@
                             <!-- 返回码 -->
                             <div class="mgt10">
                                 <div class="section-title">返回码</div>
-                                <div class="flex table-header">
-                                    <div class="flexg2 table-header-cell">
-                                        代码
-                                    </div>
-                                    <div class="flexg2 table-header-cell">
-                                        说明
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex table"
-                                    v-for="response in api.custom_info_map
-                                        .responses"
-                                    :key="response.id"
+                                <el-table
+                                    :data="api.custom_info_map.responses"
+                                    border
+                                    style="width: 100%"
                                 >
-                                    <div class="flexg2 table-cell">
-                                        {{ response.code }}
-                                    </div>
-                                    <div class="flexg2 table-cell">
-                                        {{ response.msg }}
-                                    </div>
-                                </div>
+                                    <el-table-column
+                                        prop="code"
+                                        label="代码"
+                                    ></el-table-column>
+                                    <el-table-column
+                                        prop="msg"
+                                        label="说明"
+                                    ></el-table-column>
+                                </el-table>
                             </div>
                         </div>
                     </div>
@@ -184,22 +169,18 @@
 </template>
 
 <script>
-import { ElTable } from '@/lib';
+import { OopElTableModel } from '@/lib';
 import { get_api_modules } from '@/api/api_doc';
 import pageHeader from '@/views/common/page-header.vue';
-import MyElTable from '@/views/oop_components/MyElTable.vue';
 
 var vue;
 export default {
-    components: {
-        pageHeader,
-        MyElTable,
-    },
+    components: { pageHeader },
 
     data() {
         return {
             page_title: '接口文档',
-            table: new ElTable('权限表格', {
+            table: new OopElTableModel('权限表格', {
                 cols: [
                     {
                         prop: 'name',
@@ -396,12 +377,6 @@ export default {
         vue = this;
 
         this.fetch_data();
-
-        var obj = {
-            name: 'string',
-        };
-
-        console.log(JSON.stringify(obj, null, 4));
     },
 };
 </script>

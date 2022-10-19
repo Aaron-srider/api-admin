@@ -29,15 +29,4 @@
     }
 }
 
-NO_DEVICE_TEMPLATE 模板id对应的模板不存在
-
-TEMPLATE_ENTRY_NAME_DUPLICATE 模板字段重名
-
-CAN_NOT_MODIFY_TEMPLATE_REQUIRED_ENTRY 不能修改所有模板必须有的字段
-
-
-
-
-全局返回码:
-
 
